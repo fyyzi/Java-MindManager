@@ -1,0 +1,8 @@
+#测试环境=6060
+server:
+  port: 6060
+  context-path: /idea
+spring:
+  output:
+    ansi:
+      enabled: detect

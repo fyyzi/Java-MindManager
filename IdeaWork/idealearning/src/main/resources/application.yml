@@ -1,4 +1,0 @@
-# 注意：  “：”与变量之间有一个空格 这是yml的基本语法
-server:
-  port: 6060
-  context-path: /idea

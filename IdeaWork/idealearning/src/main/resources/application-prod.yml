@@ -1,0 +1,8 @@
+#生产环境=8080
+server:
+  port: 8080
+  context-path: /idea
+spring:
+  output:
+    ansi:
+      enabled: never

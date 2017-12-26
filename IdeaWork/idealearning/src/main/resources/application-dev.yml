@@ -1,0 +1,8 @@
+#开发环境=80
+server:
+  port: 80
+  context-path: /idea
+spring:
+  output:
+    ansi:
+      enabled: always
