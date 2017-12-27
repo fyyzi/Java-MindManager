@@ -14,7 +14,7 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  */
 @SuppressWarnings("AlibabaClassMustHaveAuthor")
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
+@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class) 
 public class IdealearningApplication {
 
     public static void main(String[] args) {
