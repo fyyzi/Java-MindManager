@@ -6,3 +6,8 @@ spring:
   output:
     ansi:
       enabled: always
+#  datasource:
+#    url: jdbc:mysql://www.fyyzi.com:3306/springBoot
+#    name: xiyang
+#    password: spring.datasource.name
+#    driver-class-name: com.mysql.jdbc.Driver
