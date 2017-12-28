@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * 2017/12/27 13:06
  * @version 1.0
  */
-@RestController
+//@RestController
 public class GirlController {
 
     @Autowired

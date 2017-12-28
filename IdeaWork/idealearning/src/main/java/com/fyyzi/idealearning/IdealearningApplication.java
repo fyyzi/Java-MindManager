@@ -1,10 +1,7 @@
 package com.fyyzi.idealearning;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
 /**
  * Spring Boot 启动方法
@@ -14,7 +11,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @version 1.0
  */
 @SpringBootApplication
-@MapperScan("com.fyyzi.idealearning.generator.entitys")
 public class IdealearningApplication {
 
     public static void main(String[] args) {
