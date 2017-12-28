@@ -14,7 +14,6 @@ import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
  * @version 1.0
  */
 @SpringBootApplication
-// @EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class) 
 @MapperScan("com.fyyzi.idealearning.generator.entitys")
 public class IdealearningApplication {
 
