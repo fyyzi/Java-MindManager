@@ -25,6 +25,14 @@
     </properties>
 
     <dependencies>
+        <!-- http://blog.csdn.net/zhoujinyu0713/article/details/46843115 -->
+        <!-- 传说中的自动更新代码 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
