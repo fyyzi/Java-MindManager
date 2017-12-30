@@ -1,16 +1,16 @@
 package com.fyyzi.idealearning.jpa.controller;
 
 import com.fyyzi.idealearning.jpa.domain.Girl;
+import com.fyyzi.idealearning.jpa.domain.ResultModel;
 import com.fyyzi.idealearning.jpa.services.GirlService;
 
+import com.fyyzi.idealearning.jpa.utils.ResultUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -31,18 +31,26 @@ public class GirlController {
     private GirlService girlService;
 
     @PostMapping(value = "/girls")
-    public Girl addGirl(@Valid Girl girl, BindingResult bindingResult){
+    public ResultModel<Girl> addGirl(@Valid Girl girl, BindingResult bindingResult) {
+        ResultModel resultModel;
         // 如果有错误消息，则打印错误消息并且返回空值
-        if (bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             String message = bindingResult.getFieldError().getDefaultMessage();
-            logger.info(message);
-            return null;
+            resultModel = ResultUtils.error(1, message);
         }
-        return girlService.addGirl(girl);
+
+        resultModel = ResultUtils.success(girlService.addGirl(girl));
+
+        return resultModel;
     }
 
     @GetMapping(value = "/girls")
-    public List<Girl> getAllGirl(){
+    public List<Girl> getAllGirl() {
         return girlService.getAllGirl();
+    }
+
+    @GetMapping(value = "/getAge/{id}")
+    public Girl getAge(@PathVariable("id") Integer id){
+        return girlService.getAge(id);
     }
 }

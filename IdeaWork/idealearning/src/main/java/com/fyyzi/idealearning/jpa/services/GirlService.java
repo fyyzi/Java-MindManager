@@ -43,4 +43,12 @@ public interface GirlService {
      * @return
      */
     Girl addGirl(Girl girl);
+
+    /**
+     * 判断girl年龄
+     *
+     * @param id
+     * @return
+     */
+    Girl getAge(Integer id);
 }
