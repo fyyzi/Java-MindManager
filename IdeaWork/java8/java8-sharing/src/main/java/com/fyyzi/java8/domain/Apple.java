@@ -1,5 +1,7 @@
 package com.fyyzi.java8.domain;
 
+import java.util.Objects;
+
 /**
  * @author 息阳
  * Create in 1:53 2018/1/1
@@ -47,5 +49,23 @@ public class Apple {
                 "collor='" + collor + '\'' +
                 ", weight=" + weight +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Apple apple = (Apple) o;
+
+        if (weight != apple.weight) return false;
+        return collor.equals(apple.collor);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = collor.hashCode();
+        result = 31 * result + (int) (weight ^ (weight >>> 32));
+        return result;
     }
 }

@@ -17,7 +17,11 @@ public class AppleFactory {
                 , new Apple("green", 170)
                 , new Apple("red", 200)
                 , new Apple("blue", 2000)
-                , new Apple("yellow", 100)
+                , new Apple("yellow", 1000)
+                , new Apple("yellow", 1000)
+                , new Apple("yellow", 1000)
+                , new Apple("yellow", 1000)
+                , new Apple("yellow", 1000)
         };
         List<Apple> list = Arrays.asList(apples);
         return list;

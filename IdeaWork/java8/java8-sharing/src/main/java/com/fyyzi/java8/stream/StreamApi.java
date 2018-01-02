@@ -54,10 +54,10 @@ public class StreamApi {
 
     /**
      * 中间操作：<br> 位执行终止操作前不会执行任何操作
-     *     1. filter    过滤    接口Lambda
-     *     2. limit     截断
-     *     3. skip(n)   跳过
-     *     4. distinct  筛选
+     *     1. filter    过滤    接口Lambda（从流中排除某学元素）   Stream转换语句，原有Stream对象不改变，返回一个新的Stream对象
+     *     2. limit     截断    停止迭代
+     *     3. skip(n)   跳过    返回一个扔掉了前n个元素的溜，若元素不足n则返回一个空流。  可以与limit互补
+     *     4. distinct  筛选    去重，通过hashCode() 和 equals() 去重
      *
      */
     @Test
@@ -66,8 +66,12 @@ public class StreamApi {
         Stream<Apple> appleStream = LIST.stream()
                 // filter 过滤
                 .filter(apple -> apple.getWeight() > 150)
+                // skip（n）  跳过前n个元素
+                .skip(0)
                 // limit 截断
-                .limit(2);
+                .limit(20)
+                // 去重 通过hashCode() && equals()
+                .distinct();
 
         // 终止操作： 一次性执行全部内容，即“惰性求值” 或 “延迟加载”
         appleStream.forEach(apple -> logger.info(apple.toString()));
