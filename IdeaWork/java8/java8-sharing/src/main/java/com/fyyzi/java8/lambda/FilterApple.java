@@ -1,6 +1,7 @@
 package com.fyyzi.java8.lambda;
 
 import com.fyyzi.java8.domain.Apple;
+import com.fyyzi.java8.domain.AppleFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +48,7 @@ public class FilterApple {
     public class GreenAnd160WeightFilter implements AppleFilter{
         @Override
         public boolean filter(Apple apple) {
-            return apple.getCollor().equals("green") && apple.getWeight() >= 160;
+            return "green".equals(apple.getCollor()) && apple.getWeight() >= 160;
         }
     }
 
@@ -106,8 +107,7 @@ public class FilterApple {
 
 
     public static void main(String[] args) {
-        Apple[] apples = {new Apple("green", 150), new Apple("yellow", 120), new Apple("green", 170)};
-        List<Apple> list = Arrays.asList(apples);
+        List<Apple> list = AppleFactory.getList();
         FilterApple filterApple = new FilterApple();
 
         if (filterVersion == 1){

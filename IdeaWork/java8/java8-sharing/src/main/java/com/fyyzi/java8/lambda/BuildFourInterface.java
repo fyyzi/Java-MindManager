@@ -96,7 +96,7 @@ public class BuildFourInterface {
      * 需求： 将满足条件的字符串放入集合中
      *
      * @param stringList
-     * @param predicate  Predicate<T> 函数型接口
+     * @param predicate  Predicate<T> 断言型接口
      * @return
      */
     public List<String> filterStr(List<String> stringList, Predicate<String> predicate) {
