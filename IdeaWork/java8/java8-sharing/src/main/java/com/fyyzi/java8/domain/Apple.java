@@ -17,9 +17,14 @@ public class Apple {
     /**
      * 重量
      */
-    private long weight;
+    private Long weight;
 
     public Apple() {
+    }
+
+    public Apple(String collor, Long weight) {
+        this.collor = collor;
+        this.weight = weight;
     }
 
     public Apple(String collor, long weight) {
@@ -35,11 +40,11 @@ public class Apple {
         this.collor = collor;
     }
 
-    public long getWeight() {
+    public Long getWeight() {
         return weight;
     }
 
-    public void setWeight(long weight) {
+    public void setWeight(Long weight) {
         this.weight = weight;
     }
 

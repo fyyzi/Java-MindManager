@@ -34,6 +34,7 @@ public class StreamApi {
     /**
      * 创建Stream
      */
+    @SuppressWarnings("Duplicates")
     public void createStream() {
         // 1. 通过Collection接口获取Stream
         Collection collection = new ArrayList();
