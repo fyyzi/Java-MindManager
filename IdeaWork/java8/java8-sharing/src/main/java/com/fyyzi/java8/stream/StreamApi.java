@@ -19,62 +19,24 @@ import java.util.stream.Stream;
  *         parallelStream(); // 并行
  *
  *     2. 中间操作<br>
- *         1. 筛选与切片  filter、limit、skip(n)、distinct
+ *         1. 筛选与切片： filter、limit、skip(n)、distinct
+ *         2. 映射：map()、flatMap()
+ *         3. 排序：sorted()、sorted(Compartor compartor)
+ *
  *     3. 终止操作（终端操作）
  *
  * @author 息阳
  * 2018/1/2 13:31
  * @version 1.0
  */
-public class StreamApi {
+public class StreamApi  {
+    private static StreamCreate streamCreate = new StreamCreate();
+    private static StreamIntermediate streamIntermediate = new StreamIntermediate();
+    private static StreamTerminal streamTerminal = new StreamTerminal();
 
-    private final static Logger logger = LoggerFactory.getLogger(StreamApi.class);
-    private final static List<Apple> LIST = AppleFactory.getList();
-
-    /**
-     * 创建Stream
-     */
-    @SuppressWarnings("Duplicates")
-    public void createStream() {
-        // 1. 通过Collection接口获取Stream
-        Collection collection = new ArrayList();
-        Stream stream1 = collection.stream();
-
-        // 2. 通过Arrays的静态方法stream(xxx)获取;
-        Apple[] apples = new Apple[10];
-        Stream<Apple> stream2 = Arrays.stream(apples);
-
-        // 3. 通过Stream累中的静态方法of(T... values)获取
-        Stream<String> stream3 = Stream.of("aa", "bb", "cc");
-
-        // 4. 无限流 4.1 迭代
-        Stream<Integer> stream4 = Stream.iterate(0, (x) -> x + 2);
-        // 4.2 生成
-        Stream<String> generate = Stream.generate(() -> Math.random() + "");
-    }
-
-    /**
-     * 中间操作：<br> 位执行终止操作前不会执行任何操作
-     *     1. filter    过滤    接口Lambda（从流中排除某学元素）   Stream转换语句，原有Stream对象不改变，返回一个新的Stream对象
-     *     2. limit     截断    停止迭代
-     *     3. skip(n)   跳过    返回一个扔掉了前n个元素的溜，若元素不足n则返回一个空流。  可以与limit互补
-     *     4. distinct  筛选    去重，通过hashCode() 和 equals() 去重
-     *
-     */
-    @Test
-    public void intermediateOperation() {
-
-        Stream<Apple> appleStream = LIST.stream()
-                // filter 过滤
-                .filter(apple -> apple.getWeight() > 150)
-                // skip（n）  跳过前n个元素
-                .skip(0)
-                // limit 截断
-                .limit(20)
-                // 去重 通过hashCode() && equals()
-                .distinct();
-
-        // 终止操作： 一次性执行全部内容，即“惰性求值” 或 “延迟加载”
-        appleStream.forEach(apple -> logger.info(apple.toString()));
+    public static void main(String[] args) {
+        streamCreate.createStream();
+        streamIntermediate.intermediate();
+        streamTerminal.terminal();
     }
 }
