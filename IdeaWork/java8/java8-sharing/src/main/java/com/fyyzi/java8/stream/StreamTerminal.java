@@ -2,6 +2,7 @@ package com.fyyzi.java8.stream;
 
 import com.fyyzi.java8.domain.Apple;
 import com.fyyzi.java8.domain.AppleFactory;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -19,8 +20,12 @@ public class StreamTerminal {
     private static Logger logger = LoggerFactory.getLogger(StreamTerminal.class);
     List<Apple> apples = AppleFactory.getList();
 
-    public void terminal(){
+    public void terminal() {
+        boolean b = apples.stream()
+                .allMatch(apple -> apple.getSize().equals(Apple.Size.SMALL));
         
+
+        logger.info(b + "");
     }
 
 }

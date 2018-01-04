@@ -17,19 +17,31 @@ public class Apple {
     /**
      * 重量
      */
-    private Long weight;
+    private Integer weight;
+
+    /**
+     * 价格
+     */
+    private Double pirce;
+
+    /**
+     *  大小
+     */
+    private Size size;
 
     public Apple() {
     }
 
-    public Apple(String collor, Long weight) {
+    public Apple(String collor, Integer weight) {
         this.collor = collor;
         this.weight = weight;
     }
 
-    public Apple(String collor, long weight) {
+    public Apple(String collor, Integer weight, Double pirce, Size size) {
         this.collor = collor;
         this.weight = weight;
+        this.pirce = pirce;
+        this.size = size;
     }
 
     public String getCollor() {
@@ -40,12 +52,28 @@ public class Apple {
         this.collor = collor;
     }
 
-    public Long getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(Long weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
+    }
+
+    public Double getPirce() {
+        return pirce;
+    }
+
+    public void setPirce(Double pirce) {
+        this.pirce = pirce;
+    }
+
+    public Size getSize() {
+        return size;
+    }
+
+    public void setSize(Size size) {
+        this.size = size;
     }
 
     @Override
@@ -53,24 +81,29 @@ public class Apple {
         return "Apple{" +
                 "collor='" + collor + '\'' +
                 ", weight=" + weight +
+                ", pirce=" + pirce +
+                ", size=" + size +
                 '}';
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
+        if (this == o) { return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
         Apple apple = (Apple) o;
-
-        if (weight != apple.weight) return false;
-        return collor.equals(apple.collor);
+        return Objects.equals(getCollor(), apple.getCollor()) &&
+                Objects.equals(getWeight(), apple.getWeight()) &&
+                Objects.equals(pirce, apple.pirce) &&
+                size == apple.size;
     }
 
     @Override
     public int hashCode() {
-        int result = collor.hashCode();
-        result = 31 * result + (int) (weight ^ (weight >>> 32));
-        return result;
+
+        return Objects.hash(getCollor(), getWeight(), pirce, size);
+    }
+
+    public enum Size {
+        SMALL,BIG,BIGGER
     }
 }

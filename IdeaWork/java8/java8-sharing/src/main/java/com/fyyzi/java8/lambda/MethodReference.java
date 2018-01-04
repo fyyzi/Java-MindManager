@@ -53,7 +53,7 @@ public class MethodReference {
 
         // 例二
         Supplier<String> supplier = () -> apple.getCollor();
-        Supplier<Long> a = apple::getWeight;
+        Supplier<Integer> a = apple::getWeight;
 
         logger.info(supplier.get());
         logger.info(a.get().toString());
@@ -88,8 +88,8 @@ public class MethodReference {
      *      BiFunction<String,Long,Apple> biFunction = Apple::new;
      */
    public void sample04(){
-       BiFunction<String,Long,Apple> biFun = (x,y)->new Apple(x,y);
-       BiFunction<String,Long,Apple> appleBiFunction = Apple::new;
+       BiFunction<String,Integer,Apple> biFun = (x,y)->new Apple(x,y);
+       BiFunction<String,Integer,Apple> appleBiFunction = Apple::new;
        Supplier<Apple> appleSupplier = Apple::new;
    }
 
