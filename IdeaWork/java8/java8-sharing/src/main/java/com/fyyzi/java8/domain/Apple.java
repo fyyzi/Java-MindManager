@@ -104,6 +104,6 @@ public class Apple {
     }
 
     public enum Size {
-        SMALL,BIG,BIGGER
+        SMALL,BIG,BIGGER,NONE;
     }
 }
