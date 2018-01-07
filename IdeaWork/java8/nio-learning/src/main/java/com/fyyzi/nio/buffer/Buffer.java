@@ -28,7 +28,9 @@ import java.nio.ByteBuffer;
  *          mark        标记：用于记录当前position的位置，然后可以通过reset()方法回复到刚才mark的位置
  *
  *          大小规则：0 <= mark <= position <= limit <= capacity
- *      五、直接缓冲区与非直接缓冲区
+ *      五、直接缓冲区与非直接缓冲区allocate / AllocateDirect<br>
+ *          直接缓冲区    通过allocateDirect()方法分配直接缓冲区，缓冲区建立在操作系统的物理内存中。某种情况下可以提高效率。
+ *          非直接缓冲区    allocate 将缓冲区建立在JVM 的内存中
  *
  * @author 息阳
  * 2018/1/6 14:36
