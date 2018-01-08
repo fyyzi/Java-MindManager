@@ -33,8 +33,8 @@ import java.nio.ByteBuffer;
  *          非直接缓冲区    allocate 将缓冲区建立在JVM 的内存中
  *
  * @author 息阳
- * 2018/1/6 14:36
- * @version 1.0
+ * 2018/1.jpg/6 14:36
+ * @version 1.jpg.0
  */
 public class Buffer {
 
@@ -53,7 +53,7 @@ public class Buffer {
      * 缓冲区指针变化
      */
     private void byteBufferBySize(){
-        // 1. 分片一个指定大小的缓冲区
+        // 1.jpg. 分片一个指定大小的缓冲区
         ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
 
         logger.info("allocate初始后：总容量：{}",byteBuffer.capacity());
@@ -117,7 +117,7 @@ public class Buffer {
      * 其他方法: 时候含有剩余数据
      */
     private void byteBufferHasRemaining(){
-        // 1.分配一个指定大小的缓冲区
+        // 1.jpg.分配一个指定大小的缓冲区
         ByteBuffer buffer = ByteBuffer.allocate(1024);
 
         // 获取缓冲区中是否还有剩余数据
