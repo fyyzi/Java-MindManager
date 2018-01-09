@@ -4,10 +4,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
@@ -18,9 +15,10 @@ import java.nio.file.StandardOpenOption;
 import java.time.Instant;
 
 /**
- * 1.jpg. 利用通道完成文件的复制(非直接缓冲区）
- * 2.jpg. 利用内存映射文件的方式复制（直接缓冲区）
- * 3.通道中间的数据传输（直接缓冲区）；
+ * 1. 利用通道完成文件的复制(非直接缓冲区）
+ * 2. 利用内存映射文件的方式复制（直接缓冲区）
+ * 3. 通道中间的数据传输（直接缓冲区）；
+ * 4. 分散和聚集
  *
  * @author 息阳
  * 2018/1.jpg/7 10:07
@@ -29,6 +27,52 @@ import java.time.Instant;
 public class ChannelTest {
 
     private static final Logger logger = LoggerFactory.getLogger(ChannelTest.class);
+
+    @Test
+    public void test04(){
+        FileChannel randomAccessFileChannel = null;
+        FileChannel channel = null;
+        try {
+            RandomAccessFile randomAccessFile = new RandomAccessFile("1.hhc","rw");
+            // 获取通道
+            randomAccessFileChannel = randomAccessFile.getChannel();
+            // 分配指定大小的缓冲区
+            ByteBuffer allocate1 = ByteBuffer.allocate(100);
+            ByteBuffer allocate2 = ByteBuffer.allocate(1024);
+
+            // 分散读取
+            ByteBuffer[] byteBuffers = {allocate1,allocate2};
+                randomAccessFileChannel.read(byteBuffers);
+            for (ByteBuffer b:byteBuffers) {
+                b.flip();
+            }
+            logger.info("前100个"+new String(byteBuffers[0].array(),0,byteBuffers[0].limit()));
+            logger.info("后1024各"+new String(byteBuffers[1].array(),0,byteBuffers[1].limit()));
+
+            // 聚集写入
+            RandomAccessFile randomAccessFile2 = new RandomAccessFile("1.txt","rw");
+            channel = randomAccessFile2.getChannel();
+            channel.write(byteBuffers);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+            if (randomAccessFileChannel!=null){
+                try {
+                    randomAccessFileChannel.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            if (channel != null){
+                try {
+                    channel.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 
     @Test
     public void test03(){
@@ -47,14 +91,14 @@ public class ChannelTest {
         }catch (IOException e){
             e.printStackTrace();
         }finally {
-            if (inChannel == null) {
+            if (inChannel != null) {
                 try {
                     inChannel.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if(outChannel == null){
+            if(outChannel != null){
                 try {
                     outChannel.close();
                 } catch (IOException e) {
