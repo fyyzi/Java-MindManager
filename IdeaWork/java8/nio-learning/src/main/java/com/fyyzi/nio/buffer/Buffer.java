@@ -34,7 +34,7 @@ import java.nio.ByteBuffer;
  *
  * @author 息阳
  * 2018/1.jpg/6 14:36
- * @version 1.jpg.0
+ * @version 1.0
  */
 public class Buffer {
 

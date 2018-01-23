@@ -22,7 +22,7 @@ import java.time.Instant;
  *
  * @author 息阳
  * 2018/1.jpg/7 10:07
- * @version 1.jpg.0
+ * @version 1.0
  */
 public class ChannelTest {
 

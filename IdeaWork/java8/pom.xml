@@ -10,6 +10,7 @@
         <module>java8-sharing</module>
         <module>nio</module>
         <module>nio-learning</module>
+        <module>juc</module>
     </modules>
     <packaging>pom</packaging>
 

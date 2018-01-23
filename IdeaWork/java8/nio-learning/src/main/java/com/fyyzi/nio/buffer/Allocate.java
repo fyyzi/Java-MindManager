@@ -10,7 +10,7 @@ import java.nio.ByteBuffer;
  * 非直接缓冲区    allocate 将缓冲区建立在JVM 的内存中
  * @author 息阳
  * 2018/1.jpg/7 9:23
- * @version 1.jpg.0
+ * @version 1.0
  */
 public class Allocate {
 

@@ -33,6 +33,6 @@ import java.io.FileInputStream;
  *
  * @author 息阳
  * Create in 4:03 2018/1.jpg/8
- * @version 1.jpg.0
+ * @version 1.0
  */
 public class Channel {}
