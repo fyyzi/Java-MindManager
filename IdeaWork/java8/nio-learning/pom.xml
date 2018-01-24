@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>nio</artifactId>
+    <artifactId>nio-learning</artifactId>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/junit/junit -->

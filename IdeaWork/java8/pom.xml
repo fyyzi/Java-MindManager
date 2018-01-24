@@ -8,9 +8,8 @@
 	<version>0.0.1-SNAPSHOT</version>
     <modules>
         <module>java8-sharing</module>
-        <module>nio</module>
         <module>nio-learning</module>
-        <module>juc</module>
+        <module>juc-learning</module>
     </modules>
     <packaging>pom</packaging>
 
