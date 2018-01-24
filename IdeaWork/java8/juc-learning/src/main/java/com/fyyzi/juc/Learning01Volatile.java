@@ -12,7 +12,7 @@ package com.fyyzi.juc;
  * @version 1.0
  * @date 2018年1月23日
  */
-public class LearningVolatile {
+public class Learning01Volatile {
 
     public static void main(String[] args) {
         ThreadDemo threadDemo = new ThreadDemo();
