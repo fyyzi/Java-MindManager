@@ -28,6 +28,7 @@ public class Learning05Callable {
 
         // 2. 接收线程运算结果
         try {
+            // FutureTask也可用于闭锁
             Integer integer = integerFutureTask.get();
         } catch (InterruptedException | ExecutionException e) {
             e.printStackTrace();
