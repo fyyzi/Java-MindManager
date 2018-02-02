@@ -15,7 +15,7 @@ import java.util.stream.LongStream;
 /**
  * 并行操作     Fork/Join框架： 就是在必要的情况下，将一个大任务进行拆分（fork），拆分为若干各小任务（拆到不可拆为止）
  *                              在将小任务运算结果进行（join）汇总。
- *              Fork/Join框架采用工作窃取模式（work-stealing）
+ *              Fork/Join框架采用工作窃取模式（work-stealing） 
  *
  * @author 息阳
  * 2018/1/5 9:29
