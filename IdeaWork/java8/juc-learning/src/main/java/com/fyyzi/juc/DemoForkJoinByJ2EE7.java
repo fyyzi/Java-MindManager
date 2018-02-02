@@ -4,6 +4,9 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 
 /**
+ *
+ * JDK1.7 fork join
+ *
  * @author 息阳
  * 2018/2/2 16:48
  * @version 1.0

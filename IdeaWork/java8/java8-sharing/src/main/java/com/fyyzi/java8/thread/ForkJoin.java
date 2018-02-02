@@ -1,5 +1,6 @@
 package com.fyyzi.java8.thread;
 
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,6 +30,7 @@ public class ForkJoin {
     /**
      * 并行流方式
      */
+    @Test
     public void forkJoinStream(){
         Instant startTime = Instant.now();
         OptionalLong reduce = LongStream.range(0L, aLong +1)
