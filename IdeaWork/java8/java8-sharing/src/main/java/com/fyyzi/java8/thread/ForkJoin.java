@@ -1,6 +1,5 @@
 package com.fyyzi.java8.thread;
 
-import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,14 +24,14 @@ public class ForkJoin {
 
     private static final Logger logger = LoggerFactory.getLogger(ForkJoin.class);
 
-    private static Long l = 1*10000*10000L;
+    private static Long aLong = 1*10000*10000L;
 
     /**
      * 并行流方式
      */
     public void forkJoinStream(){
         Instant startTime = Instant.now();
-        OptionalLong reduce = LongStream.range(0L, l+1)
+        OptionalLong reduce = LongStream.range(0L, aLong +1)
                 .parallel()
                 .reduce(Long::sum);
         Instant endTime = Instant.now();
@@ -48,7 +47,7 @@ public class ForkJoin {
         Instant startTime = Instant.now();
 
         ForkJoinPool pool = new ForkJoinPool();
-        ForkJoinTask<Long> task = new ForkJoinCalculate(0L, l);
+        ForkJoinTask<Long> task = new ForkJoinCalculate(0L, aLong);
         Long invoke = pool.invoke(task);
 
         Instant endTime = Instant.now();
