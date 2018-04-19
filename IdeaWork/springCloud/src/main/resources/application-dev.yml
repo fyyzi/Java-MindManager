@@ -1,0 +1,15 @@
+#开发环境=80
+server:
+  port: 80
+  servlet:
+    context-path: /idea
+spring:
+  output:
+    ansi:
+      enabled: always
+# 日志控制
+#  datasource:
+#    url: jdbc:mysql://www.fyyzi.com:3306/springBoot
+#    name: xiyang
+#    password: spring.datasource.name
+#    driver-class-name: com.mysql.jdbc.Driver
