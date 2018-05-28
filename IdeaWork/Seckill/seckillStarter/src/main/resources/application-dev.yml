@@ -1,0 +1,20 @@
+spring:
+  # 数据源配置
+  datasource:
+    url: jdbc:mysql://www.fyyzi.com:3306/seckill?&useSSL=false
+    username: xiyang
+    password: bf679bc5-b3fc-4950-86e4-e1187f10fe30
+    driver-class-name: com.mysql.jdbc.Driver
+  redis:
+    host: 192.168.211.133
+    port: 6379
+
+  # 控制台彩色打印
+  output:
+    ansi:
+      enabled: always
+
+logging:
+  level:
+    root: info
+    com.fyyzi.seckill.mappers: info
