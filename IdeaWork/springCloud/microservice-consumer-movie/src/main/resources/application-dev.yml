@@ -26,3 +26,6 @@ eureka:
     healthcheck:
       enabled: true
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} # 修改Status显示
+#MICROSERVICE-PROVIDER-USER:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netfix.loadbalancer.RandomRule
