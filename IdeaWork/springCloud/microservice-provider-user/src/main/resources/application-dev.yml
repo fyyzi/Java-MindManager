@@ -1,6 +1,7 @@
 server:
-  port: 7900
+#  port: 7900
 #  port: 8010
+  port: 7903
 eureka:
   client:
     healthcheck:
